@@ -1,0 +1,449 @@
+/* ============================================
+   MUSIC CITY DOLLZ — style.css
+   Palette:
+     --mcd-navy:      #0D0F1A  (bg)
+     --mcd-card:      #1E2130  (cards/nav)
+     --mcd-gold:      #C9A84C  (primary accent)
+     --mcd-rose:      #9E4B6E  (hover / secondary accent)
+     --mcd-cream:     #F5EDD6  (headings / light text)
+     --mcd-muted:     #9A9FAD  (body text)
+     --mcd-border:    #2C3045  (dividers)
+============================================ */
+
+:root {
+  --mcd-navy:   #0D0F1A;
+  --mcd-card:   #1E2130;
+  --mcd-gold:   #C9A84C;
+  --mcd-rose:   #9E4B6E;
+  --mcd-cream:  #F5EDD6;
+  --mcd-muted:  #9A9FAD;
+  --mcd-border: #2C3045;
+}
+
+/* ---- BASE ---- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--mcd-navy);
+  color: var(--mcd-muted);
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ---- NAVBAR ---- */
+.mcd-nav {
+  background-color: rgba(13, 15, 26, 0.97);
+  border-bottom: 1px solid var(--mcd-border);
+  padding: 1rem 0;
+  backdrop-filter: blur(6px);
+}
+
+.mcd-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--mcd-cream) !important;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+}
+
+.mcd-brand-accent {
+  color: var(--mcd-gold);
+}
+
+.mcd-nav-link {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mcd-muted) !important;
+  transition: color 0.2s;
+  padding: 0.4rem 0 !important;
+  position: relative;
+}
+
+.mcd-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--mcd-gold);
+  transition: width 0.25s;
+}
+
+.mcd-nav-link:hover,
+.mcd-nav-link.active {
+  color: var(--mcd-cream) !important;
+}
+
+.mcd-nav-link:hover::after,
+.mcd-nav-link.active::after {
+  width: 100%;
+}
+
+/* ---- HERO ---- */
+.mcd-hero {
+  background-color: var(--mcd-navy);
+  padding: 6rem 0 4rem;
+  min-height: 55vh;
+}
+
+/* ---- DECORATIVE RULE ---- */
+.mcd-rule {
+  width: 60px;
+  height: 1px;
+  background: var(--mcd-gold);
+  margin: 1.25rem auto;
+}
+
+/* ---- EYEBROW ---- */
+.mcd-eyebrow {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mcd-gold);
+  margin-bottom: 0.75rem;
+}
+
+/* ---- HERO HEADLINE ---- */
+.mcd-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 700;
+  color: var(--mcd-cream);
+  line-height: 1.1;
+  margin-bottom: 0;
+}
+
+.mcd-headline em,
+.mcd-page-title em {
+  font-style: italic;
+  color: var(--mcd-gold);
+}
+
+/* ---- SUBHEAD ---- */
+.mcd-subhead {
+  font-size: 1rem;
+  color: var(--mcd-muted);
+  max-width: 520px;
+  margin: 1rem auto 0;
+}
+
+/* ---- BUTTONS ---- */
+.mcd-btn-primary {
+  background-color: var(--mcd-gold);
+  border: none;
+  color: var(--mcd-navy);
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.75rem 2rem;
+  border-radius: 0;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.mcd-btn-primary:hover,
+.mcd-btn-primary:focus {
+  background-color: var(--mcd-rose);
+  color: var(--mcd-cream);
+}
+
+.mcd-btn-ghost {
+  background: transparent;
+  border: 1px solid var(--mcd-gold);
+  color: var(--mcd-gold);
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.75rem 2rem;
+  border-radius: 0;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.mcd-btn-ghost:hover,
+.mcd-btn-ghost:focus {
+  background-color: var(--mcd-gold);
+  color: var(--mcd-navy);
+}
+
+/* ---- SINGLE PHOTO SECTION ---- */
+.mcd-photo-section {
+  background-color: var(--mcd-navy);
+  padding: 3rem 0;
+}
+
+.mcd-photo-frame {
+  border: 1px solid var(--mcd-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.mcd-photo-frame img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.mcd-photo-caption {
+  background-color: rgba(13, 15, 26, 0.85);
+  color: var(--mcd-gold);
+  font-family: 'Lato', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.6rem 1rem;
+  border-top: 1px solid var(--mcd-border);
+}
+
+/* ---- INTRO / SECTIONS ---- */
+.mcd-intro {
+  background-color: var(--mcd-navy);
+  border-top: 1px solid var(--mcd-border);
+  border-bottom: 1px solid var(--mcd-border);
+}
+
+.mcd-section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--mcd-cream);
+  line-height: 1.25;
+}
+
+.mcd-body-text {
+  font-size: 1rem;
+  color: var(--mcd-muted);
+  line-height: 1.8;
+}
+
+/* ---- FEATURES ---- */
+.mcd-features {
+  background-color: var(--mcd-navy);
+}
+
+.mcd-feature-card {
+  background-color: var(--mcd-card);
+  border: 1px solid var(--mcd-border);
+  transition: border-color 0.2s;
+}
+
+.mcd-feature-card:hover {
+  border-color: var(--mcd-gold);
+}
+
+.mcd-feature-icon {
+  font-size: 1.4rem;
+  color: var(--mcd-gold);
+  margin-bottom: 1rem;
+}
+
+.mcd-feature-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  color: var(--mcd-cream);
+  margin-bottom: 0.5rem;
+}
+
+.mcd-feature-text {
+  font-size: 0.92rem;
+  color: var(--mcd-muted);
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* ---- CTA BANNER ---- */
+.mcd-cta-banner {
+  background-color: var(--mcd-card);
+  border-top: 1px solid var(--mcd-border);
+  border-bottom: 1px solid var(--mcd-border);
+}
+
+.mcd-cta-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  color: var(--mcd-cream);
+}
+
+.mcd-cta-sub {
+  color: var(--mcd-muted);
+  font-size: 0.95rem;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ---- PAGE HEADER ---- */
+.mcd-page-header {
+  background-color: var(--mcd-card);
+  padding: 4rem 0 3rem;
+  border-bottom: 1px solid var(--mcd-border);
+}
+
+.mcd-page-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--mcd-cream);
+  margin-bottom: 0;
+}
+
+/* ---- ABOUT PAGE ---- */
+.mcd-about-body {
+  background-color: var(--mcd-navy);
+}
+
+.mcd-about-item {
+  background-color: var(--mcd-card);
+  border: 1px solid var(--mcd-border);
+  transition: border-color 0.2s;
+}
+
+.mcd-about-item:hover {
+  border-color: var(--mcd-gold);
+}
+
+.mcd-about-item-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--mcd-cream);
+  margin-bottom: 0.5rem;
+}
+
+.mcd-disclaimer {
+  background-color: rgba(158, 75, 110, 0.1);
+  border: 1px solid rgba(158, 75, 110, 0.3);
+}
+
+.mcd-disclaimer-text {
+  color: var(--mcd-muted);
+  font-size: 0.85rem;
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+/* ---- CONTACT PAGE ---- */
+.mcd-contact-body {
+  background-color: var(--mcd-navy);
+}
+
+.mcd-contact-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--mcd-gold);
+  margin-bottom: 0.2rem;
+}
+
+.mcd-contact-value {
+  color: var(--mcd-cream);
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+.mcd-form-card {
+  background-color: var(--mcd-card);
+  border: 1px solid var(--mcd-border);
+}
+
+.mcd-form-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: var(--mcd-cream);
+}
+
+.mcd-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mcd-muted);
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
+.mcd-required {
+  color: var(--mcd-rose);
+}
+
+.mcd-input {
+  background-color: rgba(13, 15, 26, 0.8) !important;
+  border: 1px solid var(--mcd-border) !important;
+  color: var(--mcd-cream) !important;
+  border-radius: 0 !important;
+  font-size: 0.95rem;
+  font-family: 'Lato', sans-serif;
+  padding: 0.65rem 0.85rem;
+  transition: border-color 0.2s;
+}
+
+.mcd-input:focus {
+  border-color: var(--mcd-gold) !important;
+  box-shadow: none !important;
+  outline: none;
+}
+
+.mcd-input::placeholder {
+  color: #4a5068;
+}
+
+.mcd-input option {
+  background-color: var(--mcd-card);
+  color: var(--mcd-cream);
+}
+
+.mcd-input.is-invalid {
+  border-color: var(--mcd-rose) !important;
+}
+
+.mcd-success-icon {
+  font-size: 2.5rem;
+  color: var(--mcd-gold);
+}
+
+/* ---- FOOTER ---- */
+.mcd-footer {
+  background-color: var(--mcd-card);
+  border-top: 1px solid var(--mcd-border);
+}
+
+.mcd-footer-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--mcd-cream);
+}
+
+.mcd-footer-text {
+  font-size: 0.78rem;
+  color: var(--mcd-muted);
+  margin-bottom: 0;
+  letter-spacing: 0.04em;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 767px) {
+  .mcd-hero {
+    padding: 4rem 0 3rem;
+    min-height: auto;
+  }
+  .mcd-form-card {
+    padding: 1.5rem !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
